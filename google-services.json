@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "363174270919",
+    "firebase_url": "https://hajjapp-8369f.firebaseio.com",
+    "project_id": "hajjapp-8369f",
+    "storage_bucket": "hajjapp-8369f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363174270919:android:0e0147e24aba47143f2be2",
+        "android_client_info": {
+          "package_name": "com.example.hajj_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363174270919-fkgh5s1d5v5ubbin6jgih47b3t0rc05j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hajj_app",
+            "certificate_hash": "e3c8c94b1cce51f4d0603b88841d5c2ae7768b6e"
+          }
+        },
+        {
+          "client_id": "363174270919-9l1bkna41djarr95qmh4cccgkijl4ilt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHKdO_TJAR4-SC6RF8-BRO0GNfRjdnVXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363174270919-9l1bkna41djarr95qmh4cccgkijl4ilt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
