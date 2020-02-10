@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Hajj_App</string>
+    <string name="lbl_forgot_password">Forgot Password</string>
+    <string name="forgot_password_msg">you have forgotten your password</string>
+    <string name="btn_reset_password">Reset</string>
+    <string name="btn_back">Back</string>
 </resources>
