@@ -10,20 +10,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPasswordActivity extends AppCompatActivity {
+    private Toolbar my_toolbar;
+
     private EditText inputEmail;
 
-    private Button btnReset, btnBack;
-
-    private FirebaseAuth auth;
+    private Button btnReset;
 
     private ProgressBar progressBar;
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,49 +35,34 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         inputEmail = (EditText) findViewById(R.id.email);
 
-        btnReset = (Button) findViewById(R.id.btn_reset_password);
+        btnReset = (Button) findViewById(R.id.resetpasswordbtn);
 
-        btnBack = (Button) findViewById(R.id.btn_back);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar2);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        my_toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        my_toolbar.setTitle("Reset Password");
 
         auth = FirebaseAuth.getInstance();
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String email = inputEmail.getText().toString().trim();
-
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                progressBar.setVisibility(View.VISIBLE);
-
-                auth.sendPasswordResetEmail(email)
-
+                auth.sendPasswordResetEmail(inputEmail.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(ResetPasswordActivity.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(ResetPasswordActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
-                                }
-
-                                progressBar.setVisibility(View.GONE);
-                            }
-                        });
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(ResetPasswordActivity.this, "Sent to email", Toast.LENGTH_LONG).show();
+                                    
+                        }
+                        else{
+                            Toast.makeText(ResetPasswordActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
             }
         });
+
     }
 }
