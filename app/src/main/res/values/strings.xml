@@ -4,4 +4,6 @@
     <string name="forgot_password_msg">you have forgotten your password</string>
     <string name="btn_reset_password">Reset</string>
     <string name="btn_back">Back</string>
+    <string name="facebook_app_id">204639857297826</string>
+    <string name="fb_login_protocol_scheme">fb204639857297826</string>
 </resources>
